@@ -1,9 +1,20 @@
 # ThesisMan - Software Systems Construction
 
-This project was a collaborative effort involving two more students for our ```Build Software Systems``` subject.
+This project was a collaborative effort involving two more students for our ```Software Systems Construction``` subject.
 
 ---
-# Data:
+## Project
+
+The project contains:
+- JavaFx interface for Students following the MVC pattern;
+- REST API to communicate between JavaFX and backend;
+- Web interface for teachers and workers with Server Side Rendering;
+- JPA annotations to map the classes to the DB (PostgreSQL);
+- The Spring application runs into a Docker container that inicializes the Data Base;
+- The project was built with Maven, making use of the Spring framework.
+
+---
+## Data
 
 The following users were used to populate the database, with which you can log in:
 
@@ -18,7 +29,7 @@ The following users were used to populate the database, with which you can log i
 - ```fc58640@alunos.fc.ul.pt``` - Student
 
 ---
-# Compilation and execution of the project:
+## Compilation and execution of the project
 
 To initialize docker containers (springBootApp and mySQL) simply run the command:
 ```bash
