@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ThesisMan | Themes</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/themes.css">
+</head>
+<body th:replace="~{layout :: layout (~{::section})}">
+<section>
+    <div class="controls-bar">
+        <a href="/themes/submit" class="submit-button">Submit theme</a>
+    </div>
+    <div th:if="${themes.empty}" class="no-themes-container">
+        <p>No themes to display here :(</p>
+        <p>Maybe you could try to submit one?</p>
+    </div>
+    <div th:if="${!themes.empty}" class="themes-list-container">
+        <ul class="themes-list">
+            <li th:each="t : ${themes}" class="themes-card">
+                <div class="theme-card-header">
+                    <div class="theme-card-title-bar">
+                        <h1 class="accent-text" th:text="${t.title}"></h1>
+                        <span th:class="${'theme-card-state-span ' + 'theme-card-state-' + t.state}" th:text="${t.state}"></span>
+                    </div>
+                    <div class="theme-card-content">
+                        <p th:text="${t.description}"></p>
+                        <p><span class="accent-text">Advisor:</span> <span th:text="${t.advisor.name}"></span></p>
+                        <p th:if="${t.class.name == 'pt.ul.fc.css.thesisman.business.services.dtos.ProjectDTO'}"><span class="accent-text">Enterprise Advisor:</span> <span th:text="${t.worker.name}"></span></p>
+                        <p><span class="accent-text">Remuneration:</span> <span th:text="${t.remuneration}"></span> €/month</p>
+                    </div>
+                </div>
+                <div class="theme-card-footer">
+                    <a class="more-details-button" th:href="${'/themes/' + t.id}">
+                        <span class="material-symbols-outlined tooltip">open_in_new
+                            <span class="tooltip-text">More details</span>
+                        </span>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+</body>
+</html>

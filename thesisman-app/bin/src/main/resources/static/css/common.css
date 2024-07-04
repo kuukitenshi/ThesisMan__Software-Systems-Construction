@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    --background-color: #3c3c3c;
+    --background-darker-color: #141314;
+    --default-button-color: #2c3fb1;
+    --font-color: white;
+    --text-accent-color: #cdb279;
+    --primary-green: #386a1f;
+    --primary-red: #ba1a1a;
+    --primary-yellow: #fb8e00;
+    --primary-gray: #2d2e31;
+    --hover-transparent-color: #AAAAAAAA
+}
+
+* {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--font-color);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+}
+
+input, textarea, select {
+    border: none;
+    background-color: var(--background-color);
+    height: 3em;
+    border-radius: 10px;
+    box-sizing: border-box;
+    transition: outline-width .5s ease;
+}
+
+input:focus-visible, textarea:focus-visible, select:focus-visible {
+    outline: none;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+button {
+    border: none;
+    background-color: var(--default-button-color);
+    cursor: pointer;
+}
+
+.accent-text {
+    color: var(--text-accent-color);
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.tooltip:hover > .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip-text {
+    position: absolute;
+    opacity: 0;
+    transition: opacity .3s ease;
+    z-index: 1;
+    background-color: var(--background-darker-color);
+    border-radius: 10px;
+    font-size: 1rem;
+    padding: .5rem;
+}
+
+
+.error-display-card-container {
+    width: 50em;
+    position: absolute;
+    height: 5em;
+    bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.error-display-card {
+    border-radius: 15px;
+    box-sizing: border-box;
+    width: 50em;
+    height: 100%;
+    background-color: crimson;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

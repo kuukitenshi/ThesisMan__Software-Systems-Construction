@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ThesisMan | Themes</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/theme_details.css">
+</head>
+<body th:replace="~{layout :: layout (~{::section})}">
+<section>
+    <div class="top-section">
+        <header>
+            <a href="/themes" class="back-button"><span class="material-symbols-outlined">chevron_left</span> <span class="text-decor">Back</span></a>
+            <h1 class="accent-text">Theme details</h1>
+        </header>
+        <div class="theme-details-container">
+            <div class="theme-details-card">
+                <div class="theme-details-header">
+                    <h1 class="accent-text" th:text="${theme.title}"></h1>
+                </div>
+                <div class="theme-details-content">
+                    <div class="theme-details-info-container">
+                        <div class="theme-info-box">
+                            <p class="accent-text">State:</p>
+                            <p th:text="${theme.state}"></p>
+                        </div>
+                        <div class="theme-info-box">
+                            <p class="accent-text">Remuneration:</p>
+                            <p><span th:text="${theme.remuneration}"></span> €/month</p>
+                        </div>
+                        <div class="theme-info-box">
+                            <p class="accent-text">Year:</p>
+                            <p th:text="${theme.year}"></p>
+                        </div>
+                    </div>
+                    <div class="description-container">
+                        <p th:text="${theme.description}"></p>
+                    </div>
+                    <div class="photos-container">
+                        <div class="photo-box">
+                            <img th:src="@{${'/images/' + theme.advisor.username}}" alt="profile image" onerror="this.onerror=null; this.src = '/images/user-image.webp'"/>
+                            <div class="photo-text">
+                                <p class="accent-text role-tile">Advisor:</p>
+                                <p th:text="${theme.advisor.name}"></p>
+                            </div>
+                        </div>
+                        <div class="photo-box" th:if="${theme.class.name == 'pt.ul.fc.css.thesisman.business.services.dtos.ProjectDTO'}">
+                            <div class="photo-text photo-text-reverse">
+                                <p class="accent-text role-tile">Worker:</p>
+                                <p th:text="${theme.worker.name}"></p>
+                            </div>
+                            <img th:src="@{${'/images/' + theme.worker.username}}" alt="profile image" onerror="this.onerror=null; this.src = '/images/user-image.webp'"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-section" th:if="${isAdmin != null && theme.state != 'TAKEN'}">
+        <div class="form-container">
+            <form method="post">
+                <label for="fstudent" class="accent-text">Assign to a student:</label>
+                <select id="fstudent" name="student" required="required">
+                    <option th:each="s : ${students}" th:value="${s.id}" th:text="${s.name}"></option>
+                </select>
+                <button type="submit">Assign</button>
+            </form>
+        </div>
+    </div>
+</section>
+</body>
+</html>

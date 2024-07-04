@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ThesisMan</title>
+</head>
+<body th:fragment="layout (content)">
+    <header class="main-header">
+        <h1>ThesisMan</h1>
+        <a href="/logout">Logout</a>
+    </header>
+    <main class="main-app">
+        <div class="side-nav">
+            <img th:src="@{${'/images/' + user.username}}" alt="profile image" onerror="this.onerror=null; this.src = '/images/user-image.webp'"/>
+            <p th:text="${user.name}" class="user-name">...</p>
+            <p th:text="${user.class.name == 'pt.ul.fc.css.thesisman.business.services.dtos.WorkerDTO'} ? Worker : Teacher" class="work-designation"></p>
+            <div class="divider"></div>
+            <nav>
+                <ul>
+                    <li th:classappend="${selectedNavOption} == dashboard ? selected-nav-option : non-selected-nav-option"><a href="/dashboard">Dashboard</a></li>
+                    <li th:classappend="${selectedNavOption} == themes ? selected-nav-option : non-selected-nav-option"><a href="/themes">Themes</a></li>
+                    <li th:if="${user.class.name != 'pt.ul.fc.css.thesisman.business.services.dtos.WorkerDTO'}" th:classappend="${selectedNavOption} == thesis ? selected-nav-option : non-selected-nav-option"><a href="/thesis">Thesis</a></li>
+                    <li th:if="${user.class.name != 'pt.ul.fc.css.thesisman.business.services.dtos.WorkerDTO'}" th:classappend="${selectedNavOption} == defences ? selected-nav-option : non-selected-nav-option"><a href="/defences">Defences</a></li>
+                    <li th:if="${user.class.name != 'pt.ul.fc.css.thesisman.business.services.dtos.WorkerDTO'}" th:classappend="${selectedNavOption} == stats ? selected-nav-option : non-selected-nav-option"><a href="/stats">Statistics</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="content-div-container-background">
+            <div class="content-div-container">
+                <div th:replace="${content}"></div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

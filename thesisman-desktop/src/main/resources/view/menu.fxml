@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.*?>
+<BorderPane fx:id="menuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3c3c3c;" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ul.fc.css.thesismandesktop.controllers.MenuController">
+   <left>
+      <Pane prefHeight="720.0" prefWidth="268.0" style="-fx-background-color: #57b5ff;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="userImage" fitHeight="150.0" fitWidth="200.0" layoutX="59.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../static/images/user.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="usernameLabel" alignment="CENTER" layoutY="182.0" prefHeight="38.0" prefWidth="268.0" style="-fx-font-weight: bold;" text="User" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Button fx:id="logoutBtn" alignment="CENTER" layoutX="87.0" layoutY="657.0" mnemonicParsing="false" onAction="#logout" prefHeight="37.0" prefWidth="93.0" style="-fx-background-color: #ffffff; -fx-font-weight: bold;" text="Log out" textFill="#57b5ff">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <Button fx:id="themeBtn" alignment="CENTER" layoutX="11.0" layoutY="315.0" mnemonicParsing="false" onAction="#themesOpen" prefHeight="45.0" prefWidth="246.0" style="-fx-background-color: white; -fx-border-color: white; -fx-border-radius: 10px; -fx-font-weight: bold;" text="Themes" textFill="#57b5ff">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <Button fx:id="ThesisBtn" alignment="CENTER" layoutX="11.0" layoutY="476.0" mnemonicParsing="false" onAction="#thesisOpen" prefHeight="45.0" prefWidth="246.0" style="-fx-background-color: white; -fx-border-color: white; -fx-border-radius: 10px; -fx-font-weight: bold;" text="Thesis" textFill="#57b5ff">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <Button fx:id="applicationsBtn" alignment="CENTER" layoutX="11.0" layoutY="396.0" mnemonicParsing="false" onAction="#applicationsOpen" prefHeight="45.0" prefWidth="246.0" style="-fx-background-color: white; -fx-border-color: white; -fx-border-radius: 10px; -fx-font-weight: bold;" text="Applications" textFill="#57b5ff">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <Label fx:id="mailLabel" alignment="CENTER" layoutX="2.0" layoutY="220.0" prefHeight="20.0" prefWidth="266.0" text="fc00000@alunos.fc.ul.pt" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </left>
+   <center>
+      <Label fx:id="welcomeLabel" alignment="CENTER" prefHeight="53.0" prefWidth="645.0" text="Welcome user to ThesisMan!" textFill="WHITE" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+   </center>
+</BorderPane>

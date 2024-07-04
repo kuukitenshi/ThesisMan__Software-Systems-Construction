@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ThesisMan | Defences</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/defences.css">
+</head>
+<body th:replace="~{layout :: layout (~{::section})}">
+<section>
+    <div th:if="${defencesData.empty}" class="no-defences-container">
+        <p>No defences to display here :(</p>
+    </div>
+    <div th:if="${!defencesData.empty}" class="defences-list-container">
+        <ul class="defences-list">
+            <li th:each="data : ${defencesData}" class="defence-card">
+                <div class="card-top">
+                    <div class="defence-card-title-bar">
+                        <h1 class="accent-text" th:text="${data.thesis.theme.title}"></h1>
+                        <p th:text="${#temporals.format(data.defence.dateTime, 'dd-MM-yyyy HH:mm')}"></p>
+                    </div>
+                    <div class="defence-card-content">
+                        <div class="person-display">
+                            <p class="accent-text">Student:</p>
+                            <img th:src="@{${'/images/' + data.thesis.student.username}}" alt="profile image"
+                                 onerror="this.onerror=null; this.src = '/images/user-image.webp'"/>
+                            <p th:text="${data.thesis.student.name}"></p>
+                        </div>
+                        <div class="person-display">
+                            <p class="accent-text">Advisor:</p>
+                            <img th:src="@{${'/images/' + data.thesis.theme.advisor.username}}" alt="profile image"
+                                 onerror="this.onerror=null; this.src = '/images/user-image.webp'"/>
+                            <p th:text="${data.thesis.theme.advisor.name}"></p>
+                        </div>
+                        <div class="person-display">
+                            <p class="accent-text">Arguer:</p>
+                            <img th:src="@{${'/images/' + data.defence.arguer.username}}" alt="profile image"
+                                 onerror="this.onerror=null; this.src = '/images/user-image.webp'"/>
+                            <p th:text="${data.defence.arguer.name}"></p>
+                        </div>
+                        <div class="person-display" th:if="${data.submission.type == 'FINAL'}">
+                            <p class="accent-text">President:</p>
+                            <img th:src="@{${'/images/' + data.defence.president.username}}" alt="profile image"
+                                 onerror="this.onerror=null; this.src = '/images/user-image.webp'"/>
+                            <p th:text="${data.defence.president.name}"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a class="more-details-button" th:href="${'/defences/' + data.defence.id}">
+                        <span class="material-symbols-outlined tooltip">open_in_new
+                            <span class="tooltip-text">More details</span>
+                        </span>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+</body>
+</html>

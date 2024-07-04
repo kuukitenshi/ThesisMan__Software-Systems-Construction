@@ -1,0 +1,42 @@
+form {
+    display: flex;
+    gap: .4em;
+    flex-direction: column;
+}
+
+#femail {
+    margin-bottom: .7em;
+}
+
+#fpassword {
+    margin-bottom: 2em;
+}
+
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform .3s ease;
+    border-radius: 5px;
+}
+
+button:hover, button:focus-visible {
+    transform: scale(1.03);
+}
+
+.register-button {
+    align-self: center;
+    width: 20em;
+    height: 2em;
+    background-color: var(--default-button-color);
+}
+
+input {
+    border: none;
+    outline: none;
+    background: none;
+    background-color: var(--background-color);
+    height: 3em;
+    padding: 0 1em;
+}

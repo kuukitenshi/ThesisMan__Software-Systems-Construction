@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ThesisMan | Submit Theme</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/submit_theme.css">
+</head>
+<body th:replace="~{layout :: layout (~{::section})}">
+<section>
+    <div class="controls-bar">
+        <h1 class="accent-text">Submit a theme</h1>
+        <a href="/themes" class="back-button">< Back</a>
+    </div>
+    <div class="form-container">
+        <form action="/themes/submit" method="post">
+            <label for="ftitle">Title:</label>
+            <input id="ftitle" name="title" type="text" required="required" placeholder="Title">
+
+            <label for="fdescription">Description:</label>
+            <textarea id="fdescription" name="description" required="required" placeholder="Description"></textarea>
+
+            <label for="frenumeration">Renumeration:</label>
+            <input id="frenumeration" name="renumeration" type="number" required="required" placeholder="1000">
+
+            <label th:if="${isWorker}" for="fadvisor">Advisor:</label>
+            <select id="fadvisor" name="advisor" required="required" th:if="${isWorker}">
+                <option th:each="t : ${advisors}" th:value="${t.id}" th:text="${t.name}">...</option>
+            </select>
+
+            <label for="fmasters">Compatible Masters:</label>
+            <select id="fmasters" name="masters" required="required" multiple>
+                <option th:each="m : ${masters}" th:value="${m.id}" th:text="${m.name}">...</option>
+            </select>
+
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ThesisMan | Schedule Defence</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/schedule_defence.css">
+    <script defer src="/js/schedule_defence.js"></script>
+</head>
+<body th:replace="~{layout :: layout (~{::section})}">
+<section>
+    <div class="error-display-card-container" th:if="${errorMessage != null}">
+        <div class="error-display-card">
+            <p th:text="${errorMessage}"></p>
+        </div>
+    </div>
+    <header>
+        <a th:href="${'/thesis/' + thesis.id}" class="back-button"><span class="material-symbols-outlined">chevron_left</span> <span
+                class="text-decor">Back</span></a>
+        <h1 class="accent-text">Schedule defence</h1>
+    </header>
+    <div class="form-container">
+        <form method="post">
+            <label for="fdate">Date:</label>
+            <input id="fdate" name="date" type="datetime-local" required="required">
+
+            <label for="ftype">Type:</label>
+            <select id="ftype" name="type" required="required">
+                <option value="REMOTE">Remote</option>
+                <option value="IN_PERSON">In person</option>
+            </select>
+
+            <label for="farguer">Arguer:</label>
+            <select id="farguer" name="arguer" required="required">
+                <option th:each="t : ${arguers}" th:value="${t.id}" th:text="${t.name}">...</option>
+            </select>
+
+            <label for="fclassroom" hidden="hidden">Classroom:</label>
+            <select id="fclassroom" name="classroom" required="required" hidden="hidden">
+                <option th:each="c : ${classrooms}" th:value="${c.id}" th:text="${c.designation}">...</option>
+            </select>
+
+            <label for="fpresident" th:if="${submission.type.toString() == 'FINAL'}">President:</label>
+            <select id="fpresident" name="president" required="required" th:if="${submission.type.toString() == 'FINAL'}">
+                <option th:each="t : ${arguers}" th:value="${t.id}" th:text="${t.name}">...</option>
+            </select>
+
+            <button type="submit">Schedule</button>
+        </form>
+    </div>
+</section>
+</body>
+</html>

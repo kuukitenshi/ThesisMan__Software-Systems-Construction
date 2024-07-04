@@ -1,0 +1,204 @@
+section {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header > h1 {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.back-button {
+    position: absolute;
+    left: 15em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.back-button > .text-decor {
+    text-decoration: underline;
+}
+
+.side-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.left-side-pane {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.thesis-details-card {
+    width: 60%;
+    margin-bottom: 10em;
+    background-color: var(--background-darker-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    box-sizing: border-box;
+    padding: 1em 1em 5em 1em;
+}
+
+.details-card-description-container {
+    width: 100%;
+}
+
+.person-display {
+    width: 100%;
+    display: flex;
+    height: 2em;
+    margin-top: 1em;
+    align-items: center;
+    gap: .5em;
+}
+
+.person-display > img {
+    height: 100%;
+    border-radius: 50%;
+}
+
+.right-side-pane {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submissions-container {
+    width: 100%;
+    height: 100%;
+    padding: 1em;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+}
+
+.submissions-container > h2 {
+    font-weight: bold;
+}
+
+.submissions-list {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    list-style-type: none;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+.submission-card-container {
+    width: 100%;
+    display: flex;
+    gap: .5em;
+}
+
+.submission-card {
+    width: 70%;
+    border-radius: 15px;
+    background-color: var(--background-darker-color);
+    display: flex;
+    align-items: center;
+}
+
+.submission-type-container {
+    width: 7em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 1em;
+    clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.submission-type-FINAL {
+    background-color: var(--primary-red);
+}
+
+.submission-type-PROPOSAL {
+    background-color: var(--primary-yellow);
+}
+
+.submission-type-container > p {
+    font-weight: bold;
+}
+
+.file-submission {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: .2em;
+    margin-right: 2em;
+}
+
+.file-submission-filename {
+    text-decoration: underline;
+}
+
+.submission-date {
+    margin-right: 1em;
+}
+
+.schedule-button {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: .5rem;
+    gap: .5em;
+    border-radius: 15px;
+    width: 2.9rem;
+    height: 3rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: width .4s ease;
+    cursor: pointer;
+}
+
+.details-card-header > h1 {
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+.schedule-button-schedule {
+    background-color: var(--default-button-color);
+}
+
+.schedule-button-already-scheduled {
+    background-color: var(--primary-gray);
+}
+
+.schedule-button > .material-symbols-outlined {
+    font-size: 2rem;
+}
+
+.schedule-button:hover {
+    width: 9em;
+}

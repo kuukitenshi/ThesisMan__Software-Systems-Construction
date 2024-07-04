@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane fx:id="cellPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="218.0" prefWidth="915.0" style="-fx-background-color: transparent;" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ul.fc.css.thesismandesktop.controllers.AppCellController">
+<children>
+      <Label fx:id="titleThemeLabel" layoutX="13.0" layoutY="14.0" prefHeight="17.0" prefWidth="737.0" style="-fx-text-fill: #BDB2FFFF; -fx-font-weight: bold;" text="aaaa TITLE">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Label fx:id="descriptionLabel" alignment="TOP_LEFT" layoutX="14.0" layoutY="124.0" prefHeight="82.0" prefWidth="774.0" text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa aaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
+      <Label fx:id="typeThemeLabel" alignment="CENTER_RIGHT" layoutX="792.0" layoutY="38.0" prefHeight="17.0" prefWidth="108.0" style="-fx-text-fill: #57B5FFFF; -fx-font-weight: bold;" text="Project" />
+      <Label fx:id="remunerationLabel" alignment="CENTER_RIGHT" layoutX="775.0" layoutY="67.0" prefHeight="17.0" prefWidth="125.0" text="888€" />
+      <Label fx:id="advisorLabel" layoutX="13.0" layoutY="45.0" prefHeight="17.0" prefWidth="61.0" style="-fx-text-fill: #57B5FFFF; -fx-font-weight: bold;" text="Advisor:" />
+      <Label fx:id="enterpriseAdvisorLabel" layoutX="401.0" layoutY="46.0" prefHeight="17.0" prefWidth="116.0" style="-fx-text-fill: #57B5FFFF; -fx-font-weight: bold;" text="Enterprise Advisor:" />
+<!--      <Button fx:id="cancelBtn" layoutX="855.0" layoutY="175.0" mnemonicParsing="false" onAction="#cancelApplication" style="-fx-background-color: #bf4342; -fx-text-fill: white; -fx-font-weight: bold;" text="Cancel" />-->
+      <Label fx:id="compMastersLabelInput" alignment="TOP_LEFT" layoutX="153.0" layoutY="76.0" prefHeight="35.0" prefWidth="669.0" style="-fx-background-color: transparent;" text="aaaaaaaaaaaaaaaaaa" />
+      <Label fx:id="statusLabel" alignment="CENTER_RIGHT" layoutX="785.0" layoutY="93.0" prefHeight="17.0" prefWidth="116.0" style="-fx-text-fill: #BDB2FFFF; -fx-font-weight: bold;" text="AVAILABLE" />
+      <Label fx:id="dateLabel" alignment="TOP_RIGHT" layoutX="793.0" layoutY="14.0" prefHeight="17.0" prefWidth="108.0" text="01/12/2024 20:30" />
+      <Label fx:id="advisorLabelInput" layoutX="74.0" layoutY="46.0" prefHeight="17.0" prefWidth="327.0" text="aaaaa" />
+      <Label fx:id="enterpriseAdvisorLabelInput" layoutX="523.0" layoutY="46.0" prefHeight="17.0" prefWidth="255.0" text="Enterprise Advisor:" />
+      <Label fx:id="compMastersLabel" alignment="TOP_LEFT" layoutX="13.0" layoutY="78.0" prefHeight="19.0" prefWidth="187.0" style="-fx-background-color: transparent; -fx-text-fill: #57B5FFFF; -fx-font-weight: bold;" text="Compatible Masters: " />
+      <Button onAction="#cancelClick" text="Cancel" layoutY="175" layoutX="855" alignment="BOTTOM_RIGHT" style="-fx-background-color: #bf4342; -fx-text-fill: white; -fx-font-weight: bold;"/>
+</children>
+</AnchorPane>

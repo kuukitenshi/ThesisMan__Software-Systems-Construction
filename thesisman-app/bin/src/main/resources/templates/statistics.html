@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ThesisMan | Statistics</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/statistics.css">
+</head>
+<body th:replace="~{layout :: layout (~{::section})}">
+<section>
+    <h1 class="accent-text">Statistics</h1>
+    <div class="stats-container">
+        <div class="stats-row">
+            <div class="stats-circle-container">
+                <div class="stats-circle"><span class="accent-text" th:text="${stats.totalStudents}"></span></div>
+                <p>Total Students</p>
+            </div>
+            <div class="stats-circle-container">
+                <div class="stats-circle"><span class="accent-text" th:text="${stats.mean}"></span></div>
+                <p>Total Mean</p>
+            </div>
+        </div>
+        <div class="stats-row">
+            <div class="stats-circle-container">
+                <div class="stats-circle"><span class="accent-text" th:text="${stats.totalApproved}"></span></div>
+                <p>Approved</p>
+            </div>
+            <div class="stats-circle-container">
+                <div class="stats-circle"><span class="accent-text" th:text="${stats.totalUnapproved}"></span></div>
+                <p>Not Approved</p>
+            </div>
+            <div class="stats-circle-container">
+                <div class="stats-circle"><span class="accent-text" th:text="${stats.totalStudents - stats.totalApproved - stats.totalUnapproved}"></span></div>
+                <p>Not graded</p>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

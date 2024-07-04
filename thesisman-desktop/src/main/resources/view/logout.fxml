@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane fx:id="logoutPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3c3c3c;" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ul.fc.css.thesismandesktop.controllers.LogoutController">
+   <children>
+      <Label alignment="CENTER" layoutX="398.0" layoutY="223.0" prefHeight="137.0" prefWidth="484.0" text="Logout successfully!" textFill="WHITE">
+         <font>
+            <Font size="41.0" />
+         </font>
+      </Label>
+      <Button fx:id="loginBtn" layoutX="544.0" layoutY="432.0" mnemonicParsing="false" onAction="#login" prefHeight="45.0" prefWidth="193.0" style="-fx-background-color: white; -fx-font-weight: bold;" text="Return to Login" textFill="#57b5ff">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

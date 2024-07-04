@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ThesisMan | Thesis</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/thesis_detail.css">
+</head>
+<body th:replace="~{layout :: layout (~{::section})}">
+<section>
+    <header>
+        <a href="/thesis" class="back-button"><span class="material-symbols-outlined">chevron_left</span> <span
+                class="text-decor">Back</span></a>
+        <h1 class="accent-text">Thesis details</h1>
+    </header>
+    <div class="side-container">
+        <div class="left-side-pane">
+            <div class="thesis-details-card">
+                <div class="details-card-header">
+                    <h1 th:text="${thesis.theme.title}" class="accent-text"></h1>
+                </div>
+                <div class="details-card-description-container">
+                    <p th:text="${thesis.theme.description}"></p>
+                </div>
+                <div class="person-display">
+                    <p class="accent-text">Advisor:</p>
+                    <img th:src="@{${'/images/' + thesis.theme.advisor.username}}" alt="profile image" onerror="this.onerror=null; this.src = '/images/user-image.webp'"/>
+                    <p th:text="${thesis.theme.advisor.name}"></p>
+                </div>
+                <div class="person-display"
+                     th:if="${thesis.theme.class.name == 'pt.ul.fc.css.thesisman.business.services.dtos.ProjectDTO'}">
+                    <p class="accent-text">Enterprise Advisor:</p>
+                    <img th:src="@{${'/images/' + thesis.theme.worker.username}}" alt="profile image" onerror="this.onerror=null; this.src = '/images/user-image.webp'"/>
+                    <p th:text="${thesis.theme.worker.name}"></p>
+                </div>
+                <div class="person-display">
+                    <p class="accent-text">Student:</p>
+                    <img th:src="@{${'/images/' + thesis.student.username}}" alt="profile image" onerror="this.onerror=null; this.src = '/images/user-image.webp'"/>
+                    <p th:text="${thesis.student.name}"></p>
+                </div>
+            </div>
+        </div>
+        <div class="right-side-pane">
+            <div class="submissions-container">
+                <h2 class="accent-text">Submissions:</h2>
+                <ul class="submissions-list">
+                    <li class="submission-card-container" th:each="s : ${thesis.submissions}">
+                        <div class="submission-card">
+                            <div class="submission-type-container" th:classappend="${'submission-type-' + s.type}">
+                                <p th:text="${s.type}"></p>
+                            </div>
+                            <a class="file-submission" href="">
+                                <span class="material-symbols-outlined">description</span>
+                                <span class="file-submission-filename" th:text="${s.filename}">haskell_thesis_proposal.pdf</span>
+                            </a>
+                            <p th:text="${#temporals.format(s.date, 'dd/MM/yyyy HH:mm')}" class="submission-date"></p>
+                            <p th:text="${s.defence != null && s.defence.grade != null ? 'Grade: ' + s.defence.grade : 'Not graded'}"></p>
+                        </div>
+                        <a class="schedule-button"
+                           th:attrappend="href=${s.defence == null ? '/thesis/' + thesis.id + '/scheduleDefence/' + s.id : null}"
+                           th:classappend="${s.defence == null ? 'schedule-button-schedule' : 'schedule-button-already-scheduled'}">
+                            <span class="material-symbols-outlined" th:text="${s.defence == null ? 'schedule' : 'history'}"></span>
+                            <span th:text="${s.defence == null ? 'Schedule defence' : 'Already scheduled'}"></span>
+                        </a>
+<!--                        <p th:text="${s.defence.grade}"></p>-->
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--<div class="thesis-container">-->
+<!--    <h1 th:text="${thesis.theme.title}"></h1>-->
+<!--    <p th:text="${thesis.theme.description}"></p>-->
+<!--    <p>Advisor: <span th:text="${thesis.theme.advisor.name}"></span></p>-->
+<!--    <p>Student: <span th:text="${thesis.student.name}"></span></p>-->
+<!--    <p>Submissions:</p>-->
+<!--    <div th:each="s : ${thesis.submissions}">-->
+<!--        <p th:text="${s.type}"></p>-->
+<!--        <p th:text="${s.date}"></p>-->
+<!--        <a th:if="${s.defence == null}" th:href="${'/thesis/' + thesis.id + '/scheduleDefence/' + s.id}"><button>Schedule Defence</button></a>-->
+<!--    </div>-->
+<!--</div>-->
+</body>
+</html>

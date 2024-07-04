@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>pt.ul.fc.css.thesisman</groupId>
+    <artifactId>thesisman</artifactId>
+    <version>0.2</version>
+    <packaging>pom</packaging>
+    <name>demo</name>
+    <description>Demo project for Spring Boot</description>
+    <modules>
+        <module>thesisman-app</module>
+        <module>thesisman-desktop</module>
+    </modules>
+    <properties>
+        <java.version>17</java.version>
+    </properties>
+
+</project>

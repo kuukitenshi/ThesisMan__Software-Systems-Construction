@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ThesisMan | Defences</title>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/defence_details.css">
+</head>
+<body th:replace="~{layout :: layout (~{::section})}">
+<section>
+    <header>
+        <a href="/defences" class="back-button"><span class="material-symbols-outlined">chevron_left</span> <span
+                class="text-decor">Back</span></a>
+        <h1 class="accent-text">Defence details</h1>
+    </header>
+    <div class="defence-details-container">
+        <div class="info-card">
+            <header class="info-card-header">
+                <h1 class="accent-text">Thesis</h1>
+            </header>
+            <div class="info-card-content">
+                <p><span class="accent-text">Title:</span> <span th:text="${data.thesis.theme.title}"></span></p>
+                <p><span class="accent-text">Description:</span> <span th:text="${data.thesis.theme.description}"></span></p>
+                <div class="person-display">
+                    <p class="accent-text">Student:</p>
+                    <img th:src="@{${'/images/' + data.thesis.student.username}}" alt="profile image"
+                         onerror="this.onerror=null; this.src = '/images/user-image.webp'"/>
+                    <p th:text="${data.thesis.student.name}"></p>
+                </div>
+            </div>
+        </div>
+        <div class="info-card">
+            <header class="info-card-header">
+                <h1 class="accent-text">Juri</h1>
+            </header>
+            <div class="info-card-content">
+                <div class="person-display">
+                    <p class="accent-text">Advisor:</p>
+                    <img th:src="@{${'/images/' + data.thesis.theme.advisor.username}}" alt="profile image"
+                         onerror="this.onerror=null; this.src = '/images/user-image.webp'"/>
+                    <p th:text="${data.thesis.theme.advisor.name}"></p>
+                </div>
+                <div class="person-display">
+                    <p class="accent-text">Arguer:</p>
+                    <img th:src="@{${'/images/' + data.defence.arguer.username}}" alt="profile image"
+                         onerror="this.onerror=null; this.src = '/images/user-image.webp'"/>
+                    <p th:text="${data.defence.arguer.name}"></p>
+                </div>
+                <div class="person-display" th:if="${data.submission.type == 'FINAL'}">
+                    <p class="accent-text">President:</p>
+                    <img th:src="@{${'/images/' + data.defence.president.username}}" alt="profile image"
+                         onerror="this.onerror=null; this.src = '/images/user-image.webp'"/>
+                    <p th:text="${data.defence.president.name}"></p>
+                </div>
+            </div>
+        </div>
+        <div class="info-card">
+            <header class="info-card-header">
+                <h1 class="accent-text">Submission</h1>
+            </header>
+            <div class="info-card-content">
+                <p><span class="accent-text">Date:</span> <span th:text="${#temporals.format(data.submission.date, 'dd/MM/yyyy HH:mm')}"></span></p>
+                <p><span class="accent-text">Document:</span> <a href="#" th:text="${data.submission.filename}"></a></p>
+            </div>
+        </div>
+        <div class="info-card">
+            <header class="info-card-header">
+                <h1 class="accent-text">Defence</h1>
+            </header>
+            <div class="info-card-content">
+                <p><span class="accent-text">Date:</span> <span th:text="${#temporals.format(data.defence.dateTime, 'dd/MM/yyyy HH:mm')}"></span></p>
+                <p><span class="accent-text">Duration:</span> <span th:text="${data.defence.duration}"></span> min</p>
+                <p><span class="accent-text">Grade:</span> <span th:text="${data.defence.grade == null ? 'Not graded' : data.defence.grade}"></span></p>
+                <p th:if="${data.defence.classRoom != null}" ><span class="accent-text">ClassRoom:</span> <span th:text="${data.defence.classRoom.designation}"></span></p>
+            </div>
+        </div>
+    </div>
+    <div class="form-container" th:if="${data.defence.grade == null && ((user.id == data.thesis.theme.advisor.id && data.submission.type == 'PROPOSAL') || (data.defence.president != null && user.id == data.defence.president.id && data.submission.type == 'FINAL'))}">
+        <form method="post" class="info-card">
+            <label for="fgrade" class="accent-text">Grade:</label>
+            <input id="fgrade" name="grade" type="number" placeholder="18.5" required="required" step=".01">
+            <button type="submit">Submit grade</button>
+        </form>
+    </div>
+</section>
+</body>
+</html>

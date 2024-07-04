@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane fx:id="cellPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="218.0" prefWidth="915.0" style="-fx-background-color: transparent;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="pt.ul.fc.css.thesismandesktop.controllers.ThemeCellController">
+    <children>
+<!--      <Button fx:id="applyBtn" layoutX="850.0" layoutY="179.0" mnemonicParsing="false" onAction="#apply" style="-fx-background-color: #57b5ff; -fx-text-fill: white; -fx-font-weight: bold;" text="Apply" />-->
+      <Label fx:id="titleThemeLabel" layoutX="23.0" layoutY="14.0" prefHeight="17.0" prefWidth="737.0" style="-fx-text-fill: #BDB2FFFF; -fx-font-weight: bold;" text="aaaa TITLE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="descriptionLabel" alignment="TOP_LEFT" layoutX="24.0" layoutY="128.0" prefHeight="76.0" prefWidth="774.0"/>
+      <Label fx:id="typeThemeLabel" alignment="CENTER_RIGHT" layoutX="788.0" layoutY="15.0" prefHeight="17.0" prefWidth="108.0" style="-fx-text-fill: #57B5FFFF; -fx-font-weight: bold;" text="Project" />
+      <Label fx:id="remunerationLabel" alignment="CENTER_RIGHT" layoutX="770.0" layoutY="48.0" prefHeight="17.0" prefWidth="125.0" text="888€" />
+      <Label fx:id="advisorLabel" layoutX="23.0" layoutY="50.0" prefHeight="17.0" prefWidth="61.0" style="-fx-text-fill: #57B5FFFF; -fx-font-weight: bold;" text="Advisor:" />
+      <Label fx:id="enterpriseAdvisorLabel" layoutX="411.0" layoutY="51.0" prefHeight="17.0" prefWidth="116.0" style="-fx-text-fill: #57B5FFFF; -fx-font-weight: bold;" text="Enterprise Advisor:" />
+      <Label fx:id="compMastersLabelInput" alignment="TOP_LEFT" layoutX="150.0" layoutY="89.0" prefHeight="35.0" prefWidth="680.0" style="-fx-background-color: transparent;" text="aaaaaaaaaaaaaaaaaa" />
+      <Label fx:id="statusLabel" alignment="CENTER_RIGHT" layoutX="784.0" layoutY="80.0" prefHeight="17.0" prefWidth="116.0" style="-fx-text-fill: #BDB2FFFF; -fx-font-weight: bold;" text="AVAILABLE" />
+      <Label fx:id="advisorLabelInput" layoutX="84.0" layoutY="51.0" prefHeight="17.0" prefWidth="327.0" text="aaaaa" />
+      <Label fx:id="enterpriseAdvisorLabelInput" layoutX="533.0" layoutY="51.0" prefHeight="17.0" prefWidth="255.0" text="Enterprise Advisor:" />
+      <Label fx:id="compMastersLabel" alignment="TOP_LEFT" layoutX="23.0" layoutY="88.0" prefHeight="19.0" prefWidth="187.0" style="-fx-background-color: transparent; -fx-text-fill: #57B5FFFF; -fx-font-weight: bold;" text="Compatible Masters: " />
+        <Button fx:id="applyBtn" onAction="#applyClick" text="Apply" layoutY="179" layoutX="850" alignment="BOTTOM_RIGHT" style="-fx-background-color: #57b5ff; -fx-text-fill: white; -fx-font-weight: bold;" />
+    </children>
+</AnchorPane>
