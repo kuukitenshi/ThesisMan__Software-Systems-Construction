@@ -7,11 +7,11 @@ This project was a collaborative effort involving two more students for our ```S
 
 The project contains:
 - JavaFx interface for Students following the MVC pattern;
-- REST API to communicate between JavaFX and backend;
+- REST API to communicate between JavaFX and the backend;
 - Web interface for teachers and workers with Server Side Rendering;
 - JPA annotations to map the classes to the DB (PostgreSQL);
-- The Spring application runs into a Docker container that inicializes the Data Base;
-- The project was built with Maven, making use of the Spring framework.
+- The Spring application runs into a Docker container that initializes the Data Base;
+- The project was built with Maven, using the Spring framework.
 
 ---
 ## Data
